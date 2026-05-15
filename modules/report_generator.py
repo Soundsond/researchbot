@@ -31,7 +31,7 @@ class ReportGenerator:
         data_summary = self._format_data_for_claude(by_competitor, top_promos, influencers)
 
         message = self.client.messages.create(
-            model="claude-sonnet-4-20250514",
+            model="claude-sonnet-4-5",
             max_tokens=1000,
             system="""You are a crypto casino competitive intelligence analyst.
 Generate a concise daily Telegram report in Russian based on the data provided.
