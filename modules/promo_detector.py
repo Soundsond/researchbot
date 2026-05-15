@@ -34,7 +34,7 @@ Tweet from @{tweet.get('author_handle', '')} ({tweet.get('author_followers', 0):
 Likes: {tweet.get('likes', 0)} | Retweets: {tweet.get('retweets', 0)} | Replies: {tweet.get('replies', 0)}"""
 
             message = self.client.messages.create(
-                model="claude-sonnet-4-20250514",
+                model="claude-sonnet-4-5",
                 max_tokens=300,
                 system=SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": prompt}]
