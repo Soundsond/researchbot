@@ -41,7 +41,13 @@ Likes: {tweet.get('likes', 0)} | Retweets: {tweet.get('retweets', 0)} | Replies:
             )
 
             response_text = message.content[0].text.strip()
-            data = json.loads(response_text)
+            # Убираем markdown обёртку если есть
+if "```" in response_text:
+    response_text = response_text.split("```")[1]
+    if response_text.startswith("json"):
+        response_text = response_text[4:]
+response_text = response_text.strip()
+data = json.loads(response_text)
             return data.get("is_promo", False), data
 
         except json.JSONDecodeError as e:
